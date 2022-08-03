@@ -2,17 +2,27 @@
 
 # mountpoint aendern
 lsblk 
+
 nvme0n1p1 ist die Boot Partition
 
 sudo su
+
 umount /boot/efi
+
 rmdir /boot/efi
+
 mkdir -p /tmp/bootdir
+
 cp -r /boot/* /tmp/bootdir
+
 rm -rf /boot/*
+
 mount /dev/nvme0n1p1 /boot
+
 cp -r /tmp/bootdir/* /boot/
+
 rm -rf /tmp/bootdir
+
 exit
 
 # /etc/fstab aendern von /boot/efi # nach /boot
